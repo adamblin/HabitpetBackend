@@ -28,7 +28,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/**").permitAll() // Permitir acceso a la consola de H2
+                                .requestMatchers(
+                                        "/h2-console/**",
+                                        "/swagger-ui/**",
+                                        "/v3/api-docs/**",
+                                        "/swagger-resources/**",
+                                        "/webjars/**"
+                                ).permitAll()
                         .requestMatchers("/auth/register", "/auth/login").permitAll() // Permitir endpoints públicos
                         .anyRequest().authenticated()
                 )
