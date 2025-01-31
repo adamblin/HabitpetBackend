@@ -4,4 +4,4 @@ Authorization: Bearer
 
 ### Accept requesr
 POST http://localhost:8080/friendships/accept/d80d12ee-4bca-47b0-b53b-c03eaa226319
-Authorization: Bearer 
+Authorization: Bearer
