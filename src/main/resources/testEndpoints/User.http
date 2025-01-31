@@ -1,0 +1,13 @@
+### Create pet
+POST http://localhost:8080/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODI2OTc1NSwiZXhwIjoxNzM4MjczMzU1fQ.WZ4-2PDu0QXKAY7sgFwJWbqYhBvUR8tPkUWIO_7oV2I
+Content-Type: application/json
+
+{
+  "name": "Floffy"
+}
+
+### Get pet
+GET http://localhost:8080/users/pet
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE3ODcwNSwiZXhwIjoxNzM4MTgyMzA1fQ.xIlFT70_rPI7ThI5Skx91HfDEDC_ckxN2SLKeMoiewQ
+

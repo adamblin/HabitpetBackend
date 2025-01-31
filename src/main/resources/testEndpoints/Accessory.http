@@ -1,0 +1,28 @@
+### Create Accessory
+POST http://localhost:8080/accessories
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGFtQGdtYWlsLmNvbSIsImlhdCI6MTczODE3ODc2NCwiZXhwIjoxNzM4MTgyMzY0fQ.wZ9RhTE03YBgtxhN0yB4R-vQtpS8R1aFP8us317A3mA
+Content-Type: application/json
+
+{
+  "name": "Red shirt",
+  "coins": 400
+}
+
+### Get Accessory
+GET http://localhost:8080/accessories/ae352264-a2bd-4a49-b7ce-4c10386a2312
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE2NjE5MCwiZXhwIjoxNzM4MTY5NzkwfQ.ZjdgJKx4_QIqjPkmICAvwrBk8MUCYQPG0ByQ_hdBhivp06Kdig6U7dwu1IJRR4Tc_8f3J1QDklZI_400UuT4QQ
+
+### Update Accessory
+PUT http://localhost:8080/accessories/ae352264-a2bd-4a49-b7ce-4c10386a2312
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE2NjE5MCwiZXhwIjoxNzM4MTY5NzkwfQ.ZjdgJKx4_QIqjPkmICAvwrBk8MUCYQPG0ByQ_hdBhivp06Kdig6U7dwu1IJRR4Tc_8f3J1QDklZI_400UuT4QQ
+Content-Type: application/json
+
+{
+  "name": "Golden Crown",
+  "coins": 800
+}
+
+### Delete Accessory
+DELETE http://localhost:8080/accessories/ae352264-a2bd-4a49-b7ce-4c10386a2312
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE2NjE5MCwiZXhwIjoxNzM4MTY5NzkwfQ.ZjdgJKx4_QIqjPkmICAvwrBk8MUCYQPG0ByQ_hdBhivp06Kdig6U7dwu1IJRR4Tc_8f3J1QDklZI_400UuT4QQ
+

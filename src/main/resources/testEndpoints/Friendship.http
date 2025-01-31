@@ -1,0 +1,7 @@
+### Send request
+POST http://localhost:8080/friendships/request/adamblin
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbUBnbWFpbC5jb20iLCJpYXQiOjE3MzgzMTIzMzYsImV4cCI6MTczODMxNTkzNn0.gXBr4vpwBDEPZ1vAtvl1MhmUYPhPYxPZjw57Q5qXphc
+
+### Accept requesr
+POST http://localhost:8080/friendships/accept/d80d12ee-4bca-47b0-b53b-c03eaa226319
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczODMxMjQyOCwiZXhwIjoxNzM4MzE2MDI4fQ.FS_6L47EFG2vVvLFauPuhzNTnMVA49VGhzjkjDAIVsk

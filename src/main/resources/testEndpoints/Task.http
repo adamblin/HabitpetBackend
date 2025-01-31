@@ -1,0 +1,30 @@
+### Create Task
+POST http://localhost:8080/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODI3MzQ0NCwiZXhwIjoxNzM4Mjc3MDQ0fQ.Y0eLlkeMHjVSzEjQAafXuaKmH0-v7A0qH7O36uofNZs
+Content-Type: application/json
+
+{
+  "name": "Study for exam",
+  "estimatedTime": 120,
+  "type": "Education",
+  "status": "Done"
+}
+
+### Get Tasks
+GET http://localhost:8080/tasks/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODI3MDUyMiwiZXhwIjoxNzM4Mjc0MTIyfQ.X1K6Of20BzFZq_r6eXNkjlpXn8gVbhyubhscjVH7x-Q
+
+### Delete Task
+DELETE http://localhost:8080/tasks/b6a111bb-ea34-4501-8712-d6827136c8ed
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODI3MDUyMiwiZXhwIjoxNzM4Mjc0MTIyfQ.X1K6Of20BzFZq_r6eXNkjlpXn8gVbhyubhscjVH7x-Q
+
+### Patch Task
+PATCH http://localhost:8080/tasks/af662fe9-5679-4f02-b592-2efa54760eb9
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODI3MjIwMSwiZXhwIjoxNzM4Mjc1ODAxfQ.dzNY7tlCb-PY8VQPhyTjmVYVehim5-UrQYpJVismOc4
+Content-Type: application/json
+
+{
+  "name": "Go to Gym",
+  "type": "Sport",
+  "status": "Done"
+}
