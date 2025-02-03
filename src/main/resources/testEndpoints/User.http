@@ -1,6 +1,6 @@
 ### Create pet
 POST http://localhost:8080/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODI2OTc1NSwiZXhwIjoxNzM4MjczMzU1fQ.WZ4-2PDu0QXKAY7sgFwJWbqYhBvUR8tPkUWIO_7oV2I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODU4MDA2NSwiZXhwIjoxNzM4NTgzNjY1fQ._hkRtquBy8nZMjGKGRIdEpiSsz1DRWqSxgEmT2aba8Y
 Content-Type: application/json
 
 {
@@ -9,5 +9,5 @@ Content-Type: application/json
 
 ### Get pet
 GET http://localhost:8080/users/pet
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE3ODcwNSwiZXhwIjoxNzM4MTgyMzA1fQ.xIlFT70_rPI7ThI5Skx91HfDEDC_ckxN2SLKeMoiewQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODU3ODkwMCwiZXhwIjoxNzM4NTgyNTAwfQ.2ijuAuYHA6_laDQFx8wHi5SzDla-IaoCfKW3RhMx8is
 

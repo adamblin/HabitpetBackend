@@ -22,8 +22,8 @@ public class AuthRestController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody UserDTO userDTO) {
         try {
-            userService.register(userDTO);
-            return ResponseEntity.ok(Map.of("message", "User registered successfully"));
+            String token = userService.register(userDTO);
+            return ResponseEntity.ok(Map.of("token", token));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }

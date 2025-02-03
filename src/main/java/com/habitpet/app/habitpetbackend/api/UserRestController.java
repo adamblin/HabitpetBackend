@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/users")
 public class UserRestController {
@@ -32,7 +34,11 @@ public class UserRestController {
     public ResponseEntity<Pet> getPet(@AuthenticationPrincipal User user) {
         // Carrega el User complet
         User fullUser = userService.findById(user.getId());
-        Pet pet = userService.getPetForUser(fullUser);
+        ResponseEntity<Pet> response = userService.getPetForUser(fullUser);
+        Pet pet = response.getBody(); // Extraemos el cuerpo del ResponseEntity
+        if (pet == null) {
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok(pet);
     }
 

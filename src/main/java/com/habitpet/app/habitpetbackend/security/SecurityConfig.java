@@ -35,7 +35,8 @@ public class SecurityConfig {
                                         "/swagger-resources/**",
                                         "/webjars/**"
                                 ).permitAll()
-                        .requestMatchers("/auth/register", "/auth/login").permitAll() // Permitir endpoints públicos
+                        .requestMatchers("/auth/register", "/auth/login").permitAll()
+                        .requestMatchers("/users/pet").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
