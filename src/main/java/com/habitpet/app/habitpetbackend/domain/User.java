@@ -26,6 +26,7 @@ public class User implements UserDetails {
     private String email;
     @NotBlank(message = "El nombre de usuario no puede estar vacío")
     @Size(min = 3, max = 20, message = "El nombre de usuario debe tener entre 3 y 20 caracteres")
+    @Column(unique = true)
     private String username;
     @NotBlank(message = "La contraseña no puede estar vacía")
     @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
