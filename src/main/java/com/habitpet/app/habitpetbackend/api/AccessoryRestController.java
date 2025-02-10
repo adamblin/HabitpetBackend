@@ -43,4 +43,10 @@ public class AccessoryRestController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping
+    public ResponseEntity<List<AccessoryDTO>> getAllAccessories() {
+        List<AccessoryDTO> accessories = accessoryService.getAllAccessories();
+        return ResponseEntity.ok(accessories);
+    }
+
 }

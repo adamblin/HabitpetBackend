@@ -26,3 +26,5 @@ Content-Type: application/json
 DELETE http://localhost:8080/accessories/ae352264-a2bd-4a49-b7ce-4c10386a2312
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE2NjE5MCwiZXhwIjoxNzM4MTY5NzkwfQ.ZjdgJKx4_QIqjPkmICAvwrBk8MUCYQPG0ByQ_hdBhivp06Kdig6U7dwu1IJRR4Tc_8f3J1QDklZI_400UuT4QQ
 
+### Get All accessories
+GET http://localhost:8080/accessories

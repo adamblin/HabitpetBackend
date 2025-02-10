@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AccessoryService {
@@ -39,5 +40,12 @@ public class AccessoryService {
             throw new RuntimeException("Accessory not found with ID: " + id);
         }
         accessoryRepository.deleteById(id);
+    }
+
+    public List<AccessoryDTO> getAllAccessories() {
+        List<Accessory> accessories = accessoryRepository.findAll();
+        return accessories.stream()
+                .map(AccessoryDTO::new)
+                .collect(Collectors.toList());
     }
 }
