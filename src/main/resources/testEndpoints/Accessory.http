@@ -4,8 +4,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGFtQGdtYWlsLmNvbSIsImlhd
 Content-Type: application/json
 
 {
-  "name": "Red shirt",
-  "coins": 400
+  "name": "Polla",
+  "coins": 10000
 }
 
 ### Get Accessory

@@ -1,7 +1,10 @@
 ### Send request
-POST http://localhost:8080/friendships/request/adamblin
-Authorization: Bearer
+POST http://localhost:8080/friendships/request/adam
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczOTI2OTU0NywiZXhwIjoxNzM5MjczMTQ3fQ.dkGcVmk0zBwrzKqQO2-i-eqJjPI9ruOi1F39wtVR5DM
+### Accept request
+POST http://localhost:8080/friendships/accept/d1438045-0947-4978-a25f-16d91d04c726
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTI2OTU0MSwiZXhwIjoxNzM5MjczMTQxfQ.2URUSS6DUVlaulMtuf5Hw7Xty7lhf33XwriBpd8FAC0
+### Get all friends
+GET http://localhost:8080/friendships
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczOTI2OTU0NywiZXhwIjoxNzM5MjczMTQ3fQ.dkGcVmk0zBwrzKqQO2-i-eqJjPI9ruOi1F39wtVR5DM
 
-### Accept requesr
-POST http://localhost:8080/friendships/accept/d80d12ee-4bca-47b0-b53b-c03eaa226319
-Authorization: Bearer

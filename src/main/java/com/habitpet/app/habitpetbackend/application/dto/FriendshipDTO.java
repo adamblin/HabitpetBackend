@@ -16,7 +16,25 @@ public class FriendshipDTO {
         this.friendId = friendship.getFriend().getId();
         this.accepted = friendship.isAccepted();
     }
+
+    public FriendshipDTO(String userUsername, String friendUsername, boolean accepted) {
+        this.userId = userUsername;
+        this.friendId = friendUsername;
+        this.accepted = accepted;
+    }
     public static FriendshipDTO fromEntity(Friendship friendship){
         return new FriendshipDTO(friendship);
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getFriendId() {
+        return friendId;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
     }
 }

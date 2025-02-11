@@ -44,10 +44,11 @@ public class FriendshipService {
     }
 
     @Transactional(readOnly = true)
-    public List<FriendshipDTO> getFriends(User user) {
-        return friendshipRepository.findByUserOrFriendAndAcceptedTrue(user, user).stream()
-                .map(FriendshipDTO::fromEntity)
-                .collect(Collectors.toList());
+    public List<FriendshipDTO> getAllFriends(User user) {
+        return friendshipRepository.findAcceptedFriendshipsWithUsernames(user.getId());
     }
+
+
+
 
 }
