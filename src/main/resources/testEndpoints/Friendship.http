@@ -1,9 +1,9 @@
 ### Send request
 POST http://localhost:8080/friendships/request/adam
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczOTI2OTU0NywiZXhwIjoxNzM5MjczMTQ3fQ.dkGcVmk0zBwrzKqQO2-i-eqJjPI9ruOi1F39wtVR5DM
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczOTI4MTczNywiZXhwIjoxNzM5Mjg1MzM3fQ.lgmXjsBMtVutY5KE9wWZBwT5n2VHyWWx5WBPSeEupXY
 ### Accept request
-POST http://localhost:8080/friendships/accept/d1438045-0947-4978-a25f-16d91d04c726
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTI2OTU0MSwiZXhwIjoxNzM5MjczMTQxfQ.2URUSS6DUVlaulMtuf5Hw7Xty7lhf33XwriBpd8FAC0
+POST http://localhost:8080/friendships/accept/e8e4df00-a444-4358-96af-cb350b554334
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTI4MTcxMywiZXhwIjoxNzM5Mjg1MzEzfQ.OT-AymoL47JDBFZWGoaKtxbkgcA0e8YOPBviOze34YI
 ### Get all friends
 GET http://localhost:8080/friendships
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczOTI2OTU0NywiZXhwIjoxNzM5MjczMTQ3fQ.dkGcVmk0zBwrzKqQO2-i-eqJjPI9ruOi1F39wtVR5DM
