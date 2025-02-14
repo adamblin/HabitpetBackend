@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name = "accessories")
+@Entity
+@Table(name = "accessories")
 public class Accessory {
 
     @Id

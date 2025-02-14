@@ -14,17 +14,31 @@ import java.util.Optional;
 @Repository
 public interface FriendshipRepository extends JpaRepository<Friendship, String> {
 
-    Optional<Friendship> findByIdAndFriend(String requestId, User friend);
-
+    // Verifica si una amistad ya existe
     boolean existsByUserAndFriend(User user, User friend);
 
-    @Query("SELECT new com.habitpet.app.habitpetbackend.application.dto.FriendshipDTO(u.username, uf.username, f.accepted) " +
-            "FROM com.habitpet.app.habitpetbackend.domain.Friendship f " +
-            "JOIN f.user u " +
-            "JOIN f.friend uf " +
-            "WHERE (u.id = :userId OR uf.id = :userId) AND f.accepted = true")
-    List<FriendshipDTO> findAcceptedFriendshipsWithUsernames(@Param("userId") String userId);
+    // Buscar una solicitud pendiente
+    @Query("SELECT f FROM Friendship f WHERE f.user.id = :senderId AND f.friend.id = :receiverId AND f.accepted = false")
+    Optional<Friendship> findPendingRequest(@Param("senderId") String senderId, @Param("receiverId") String receiverId);
 
+    // Obtener todas las solicitudes pendientes
+    @Query("SELECT f FROM Friendship f WHERE f.friend.id = :userId AND f.accepted = false")
+    List<Friendship> findPendingRequests(@Param("userId") String userId);
+
+    @Query("""
+    SELECT new com.habitpet.app.habitpetbackend.application.dto.FriendshipDTO(
+        CASE 
+            WHEN f.user.id = :userId THEN f.friend.username 
+            ELSE f.user.username 
+        END, 
+        true) 
+    FROM Friendship f 
+    JOIN f.user u 
+    JOIN f.friend fr 
+    WHERE (f.user.id = :userId OR f.friend.id = :userId) 
+    AND f.accepted = true
+""")
+    List<FriendshipDTO> findAcceptedFriendshipsWithUsernames(@Param("userId") String userId);
 
 
 

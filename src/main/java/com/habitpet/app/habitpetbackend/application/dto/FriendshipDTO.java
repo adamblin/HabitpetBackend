@@ -4,34 +4,38 @@ import com.habitpet.app.habitpetbackend.domain.Friendship;
 
 public class FriendshipDTO {
 
-    private String userId;
-    private String friendId;
-
+    private String userUsername;
+    private String friendUsername;
     private boolean accepted;
 
     public FriendshipDTO() {}
 
     public FriendshipDTO(Friendship friendship) {
-        this.userId = friendship.getUser().getId();
-        this.friendId = friendship.getFriend().getId();
+        this.userUsername = friendship.getUser().getUsername();
+        this.friendUsername = friendship.getFriend().getUsername();
         this.accepted = friendship.isAccepted();
     }
 
     public FriendshipDTO(String userUsername, String friendUsername, boolean accepted) {
-        this.userId = userUsername;
-        this.friendId = friendUsername;
+        this.userUsername = userUsername;
+        this.friendUsername = friendUsername;
         this.accepted = accepted;
     }
-    public static FriendshipDTO fromEntity(Friendship friendship){
+    public FriendshipDTO(String friendUsername, boolean accepted) {
+        this.friendUsername = friendUsername;
+        this.accepted = accepted;
+    }
+
+    public static FriendshipDTO fromEntity(Friendship friendship) {
         return new FriendshipDTO(friendship);
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserUsername() {
+        return userUsername;
     }
 
-    public String getFriendId() {
-        return friendId;
+    public String getFriendUsername() {
+        return friendUsername;
     }
 
     public boolean isAccepted() {

@@ -18,24 +18,29 @@ public class FriendshipRestController {
         this.friendshipService = friendshipService;
     }
 
+
     @PostMapping("/request/{usernameId}")
     public ResponseEntity<Void> sendFriendRequest(@AuthenticationPrincipal User user, @PathVariable String usernameId) {
         friendshipService.sendFriendRequest(user, usernameId);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/accept/{requestId}")
-    public ResponseEntity<Void> acceptFriendRequest(@AuthenticationPrincipal User user, @PathVariable String requestId) {
-        friendshipService.acceptFriendRequest(user, requestId);
+
+    @PostMapping("/accept/{senderId}")
+    public ResponseEntity<Void> acceptFriendRequest(@AuthenticationPrincipal User user, @PathVariable String senderId) {
+        friendshipService.acceptFriendRequest(user, senderId);
         return ResponseEntity.ok().build();
     }
+
+
+    @GetMapping("/requests")
+    public ResponseEntity<List<FriendshipDTO>> getFriendRequests(@AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(friendshipService.getPendingFriendRequests(user));
+    }
+
 
     @GetMapping()
     public ResponseEntity<List<FriendshipDTO>> getAllFriends(@AuthenticationPrincipal User user) {
         return ResponseEntity.ok(friendshipService.getAllFriends(user));
     }
-
-
-
-
 }
