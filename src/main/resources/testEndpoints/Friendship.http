@@ -2,8 +2,8 @@
 POST http://localhost:8080/friendships/request/adam
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTczOTc4MzE0NywiZXhwIjoxNzM5Nzg2NzQ3fQ.bUweD2MUYUIqJED9FvPpV6vpRvYsRmdgheE___SAgI8
 ### 2️⃣ Aceptar solicitud de amistad
-POST http://localhost:8080/friendships/accept/edaf1750-acd4-4cda-a52a-e13f9136924c
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTcyODcyNiwiZXhwIjoxNzM5NzMyMzI2fQ.Aj7U4F5qYwgLCgvBflbJi61wYnyTc-gOH7GGwbxKIss
+POST http://localhost:8080/friendships/accept/cf9a887e-f086-412d-a00b-834d55088beb
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTgwNDk5MCwiZXhwIjoxNzM5ODA4NTkwfQ.YMQDzzYrJDUC_KIgl83Aar6e3JqE3mo_qW-bEdv_Dys
 ### 3️⃣ Obtener todas las solicitudes de amistad pendientes
 GET http://localhost:8080/friendships/requests
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTc4NTI4NCwiZXhwIjoxNzM5Nzg4ODg0fQ.mWQfM9_bzJiRdRk-f9TRKgEOyRbxe6pYOl36D41h1-E

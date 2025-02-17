@@ -23,8 +23,8 @@ Content-Type: application/json
 }
 
 ### Delete Accessory
-DELETE http://localhost:8080/accessories/ae352264-a2bd-4a49-b7ce-4c10386a2312
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczODE2NjE5MCwiZXhwIjoxNzM4MTY5NzkwfQ.ZjdgJKx4_QIqjPkmICAvwrBk8MUCYQPG0ByQ_hdBhivp06Kdig6U7dwu1IJRR4Tc_8f3J1QDklZI_400UuT4QQ
+DELETE http://localhost:8080/accessories/b1dbc58c-4760-4261-a6f1-e82557c07655
+Authorization: Bearer
 
 ### Get All accessories
 GET http://localhost:8080/accessories

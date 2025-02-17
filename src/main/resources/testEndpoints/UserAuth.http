@@ -18,3 +18,25 @@ Content-Type: application/json
   "email": "t@gmail.com",
   "password": "hola123"
 }
+
+### Registro de un nuevo usuario
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "manolo",
+  "email": "m@gmail.com",
+  "password": "hola123"
+}
+
+###
+
+### Login del usuario
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "m@gmail.com",
+  "password": "hola123"
+}
+
