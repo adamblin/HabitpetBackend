@@ -1,15 +1,12 @@
 ### 1️⃣ Enviar solicitud de amistad
 POST http://localhost:8080/friendships/request/adam
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTczOTUyMTk2MiwiZXhwIjoxNzM5NTI1NTYyfQ.92AI6Qpmt9wTBeT8Y_En9aofM83WKgq22NW1TUkfsgA
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTczOTc4MzE0NywiZXhwIjoxNzM5Nzg2NzQ3fQ.bUweD2MUYUIqJED9FvPpV6vpRvYsRmdgheE___SAgI8
 ### 2️⃣ Aceptar solicitud de amistad
-POST http://localhost:8080/friendships/accept/7cf92edb-97e7-4992-80f3-c0fae01d8272
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTUyMTk1MCwiZXhwIjoxNzM5NTI1NTUwfQ.NxcvOHdGdwWIkTDsLFzbC_btIhQHX4gdyQ2XWMoLDZU
-
+POST http://localhost:8080/friendships/accept/edaf1750-acd4-4cda-a52a-e13f9136924c
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTcyODcyNiwiZXhwIjoxNzM5NzMyMzI2fQ.Aj7U4F5qYwgLCgvBflbJi61wYnyTc-gOH7GGwbxKIss
 ### 3️⃣ Obtener todas las solicitudes de amistad pendientes
 GET http://localhost:8080/friendships/requests
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTczOTUyNzYwMiwiZXhwIjoxNzM5NTMxMjAyfQ.V-cjAObRGFamueRYqx9h5IilGLKpaAXXm8sDdv81uiY
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczOTc4NTI4NCwiZXhwIjoxNzM5Nzg4ODg0fQ.mWQfM9_bzJiRdRk-f9TRKgEOyRbxe6pYOl36D41h1-E
 ### 4️⃣ Obtener todos los amigos aceptados
 GET http://localhost:8080/friendships
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTczOTUyNzYwMiwiZXhwIjoxNzM5NTMxMjAyfQ.V-cjAObRGFamueRYqx9h5IilGLKpaAXXm8sDdv81uiY
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTczOTcyODY5NCwiZXhwIjoxNzM5NzMyMjk0fQ.FoeUKUXGfmm_z_LePQY5sErKssP-amY8EezuSPeDjZQ

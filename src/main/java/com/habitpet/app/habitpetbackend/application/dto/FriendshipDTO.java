@@ -1,7 +1,8 @@
 package com.habitpet.app.habitpetbackend.application.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.habitpet.app.habitpetbackend.domain.Friendship;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FriendshipDTO {
 
     private String userUsername;
