@@ -26,7 +26,7 @@ public class AuthRestController {
             return ResponseEntity.ok(Map.of("token", token));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
-        }
+        }yog8uigigigigigigig 
     }
 
     // **Login**
