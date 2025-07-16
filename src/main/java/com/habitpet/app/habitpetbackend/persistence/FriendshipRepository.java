@@ -18,11 +18,11 @@ public interface FriendshipRepository extends JpaRepository<Friendship, String> 
     boolean existsByUserAndFriend(User user, User friend);
 
     // Buscar una solicitud pendiente
-    @Query("SELECT f FROM Friendship f WHERE f.user.id = :senderId AND f.friend.id = :receiverId AND f.accepted = false")
+    @Query("SELECT f FROM Friendship f WHERE f.user.id = :senderId AND f.friend.id = :receiverId AND f.status = 'PENDING'")
     Optional<Friendship> findPendingRequest(@Param("senderId") String senderId, @Param("receiverId") String receiverId);
 
     // Obtener todas las solicitudes pendientes
-    @Query("SELECT f FROM Friendship f WHERE f.friend.id = :userId AND f.accepted = false")
+    @Query("SELECT f FROM Friendship f WHERE f.friend.id = :userId AND f.status = 'PENDING'")
     List<Friendship> findPendingRequests(@Param("userId") String userId);
 
     @Query("""
@@ -31,14 +31,13 @@ public interface FriendshipRepository extends JpaRepository<Friendship, String> 
             WHEN f.user.id = :userId THEN f.friend.username 
             ELSE f.user.username 
         END, 
-        true) 
+        com.habitpet.app.habitpetbackend.domain.enums.FriendshipStatus.ACCEPTED) 
     FROM Friendship f 
-    JOIN f.user u 
-    JOIN f.friend fr 
     WHERE (f.user.id = :userId OR f.friend.id = :userId) 
-    AND f.accepted = true
+    AND f.status = 'ACCEPTED'
 """)
     List<FriendshipDTO> findAcceptedFriendshipsWithUsernames(@Param("userId") String userId);
+
 
 
 

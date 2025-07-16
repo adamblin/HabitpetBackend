@@ -75,18 +75,18 @@ INSERT INTO tasks (id, name, estimated_time, type, status, points, user_id) VALU
                                                                                 (UUID(), 'Work Out', 60, 'exercise', 'completed', 20, (SELECT id FROM users WHERE username = 'jane_smith')),
                                                                                 (UUID(), 'Grocery Shopping', 30, 'errand', 'to_do', 5, (SELECT id FROM users WHERE username = 'alice_wonder'));
 
--- Crear tabla friendships con la columna accepted
+-- Crear tabla friendships con columna status en vez de accepted
 CREATE TABLE friendships (
                              id UUID PRIMARY KEY,
                              user_id UUID NOT NULL,
                              friend_id UUID NOT NULL,
-                             accepted BOOLEAN DEFAULT FALSE NOT NULL,
+                             status VARCHAR(50) DEFAULT 'PENDING' NOT NULL,
                              FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
                              FOREIGN KEY (friend_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
--- Insertar amistades con estado inicial de accepted
-INSERT INTO friendships (id, user_id, friend_id, accepted) VALUES
-                                                               (UUID(), (SELECT id FROM users WHERE username = 'john_doe'), (SELECT id FROM users WHERE username = 'jane_smith'), FALSE),
-                                                               (UUID(), (SELECT id FROM users WHERE username = 'jane_smith'), (SELECT id FROM users WHERE username = 'alice_wonder'), FALSE),
-                                                               (UUID(), (SELECT id FROM users WHERE username = 'alice_wonder'), (SELECT id FROM users WHERE username = 'john_doe'), FALSE);
+-- Insertar amistades con estado inicial PENDING
+INSERT INTO friendships (id, user_id, friend_id, status) VALUES
+                                                             (UUID(), (SELECT id FROM users WHERE username = 'john_doe'),     (SELECT id FROM users WHERE username = 'jane_smith'),  'PENDING'),
+                                                             (UUID(), (SELECT id FROM users WHERE username = 'jane_smith'),   (SELECT id FROM users WHERE username = 'alice_wonder'), 'PENDING'),
+                                                             (UUID(), (SELECT id FROM users WHERE username = 'alice_wonder'), (SELECT id FROM users WHERE username = 'john_doe'),     'PENDING');

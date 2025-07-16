@@ -2,29 +2,31 @@ package com.habitpet.app.habitpetbackend.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.habitpet.app.habitpetbackend.domain.Friendship;
+import com.habitpet.app.habitpetbackend.domain.enums.FriendshipStatus;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FriendshipDTO {
 
     private String userUsername;
     private String friendUsername;
-    private boolean accepted;
+    private FriendshipStatus status;
 
     public FriendshipDTO() {}
 
     public FriendshipDTO(Friendship friendship) {
         this.userUsername = friendship.getUser().getUsername();
         this.friendUsername = friendship.getFriend().getUsername();
-        this.accepted = friendship.isAccepted();
+        this.status = friendship.getStatus();
     }
 
-    public FriendshipDTO(String userUsername, String friendUsername, boolean accepted) {
+    public FriendshipDTO(String userUsername, String friendUsername, FriendshipStatus status) {
         this.userUsername = userUsername;
         this.friendUsername = friendUsername;
-        this.accepted = accepted;
+        this.status = status;
     }
-    public FriendshipDTO(String friendUsername, boolean accepted) {
+    public FriendshipDTO(String friendUsername, FriendshipStatus status) {
         this.friendUsername = friendUsername;
-        this.accepted = accepted;
+        this.status = status;
     }
 
     public static FriendshipDTO fromEntity(Friendship friendship) {
@@ -39,7 +41,7 @@ public class FriendshipDTO {
         return friendUsername;
     }
 
-    public boolean isAccepted() {
-        return accepted;
+    public FriendshipStatus getStatus() {
+        return status;
     }
 }
