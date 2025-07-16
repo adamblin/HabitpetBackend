@@ -2,6 +2,7 @@ package com.habitpet.app.habitpetbackend.api;
 
 import com.habitpet.app.habitpetbackend.application.UserService;
 import com.habitpet.app.habitpetbackend.application.dto.UserDTO;
+import com.habitpet.app.habitpetbackend.application.dto.UserLoginDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +32,9 @@ public class AuthRestController {
 
     // **Login**
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO) {
         try {
-            String token = userService.login(userDTO);
+            String token = userService.login(userLoginDTO);
             return ResponseEntity.ok(Map.of("token", token));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));

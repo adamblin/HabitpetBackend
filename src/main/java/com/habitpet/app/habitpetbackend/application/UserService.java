@@ -2,6 +2,7 @@ package com.habitpet.app.habitpetbackend.application;
 
 import com.habitpet.app.habitpetbackend.application.dto.PetDTO;
 import com.habitpet.app.habitpetbackend.application.dto.UserDTO;
+import com.habitpet.app.habitpetbackend.application.dto.UserLoginDTO;
 import com.habitpet.app.habitpetbackend.domain.Pet;
 import com.habitpet.app.habitpetbackend.domain.User;
 import com.habitpet.app.habitpetbackend.persistence.UserRepository;
@@ -41,12 +42,12 @@ public class UserService {
         return jwtTokenProvider.generateToken(user.getEmail());
     }
 
-    public String login(UserDTO userDTO) {
-        User user = userRepository.findByEmail(userDTO.getEmail())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password."));
+    public String login(UserLoginDTO userLoginDTO) {
+        User user = userRepository.findByUsername(userLoginDTO.getUsername())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid username or password."));
 
-        if (!passwordEncoder.matches(userDTO.getPassword(), user.getPassword())) {
-            throw new IllegalArgumentException("Invalid email or password.");
+        if (!passwordEncoder.matches(userLoginDTO.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("Invalid username or password.");
         }
 
         return jwtTokenProvider.generateToken(user.getEmail());
@@ -65,7 +66,7 @@ public class UserService {
     }
 
     public ResponseEntity<Pet> getPetForUser(User user) {
-        User fullUser = findById(user.getId()); // ✅ Llamamos directamente al método findById de esta clase
+        User fullUser = findById(user.getId()); // Llamamos directamente al método findById de esta clase
         Pet pet = fullUser.getPet();
 
         if (pet == null) {
