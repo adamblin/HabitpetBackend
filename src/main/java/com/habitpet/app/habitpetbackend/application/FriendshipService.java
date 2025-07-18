@@ -59,7 +59,7 @@ public class FriendshipService {
 
     @Transactional(readOnly = true)
     public List<FriendshipDTO> getAllFriends(User user) {
-        return friendshipRepository.findAcceptedFriendshipsWithUsernames(user.getId());
+        return friendshipRepository.findAcceptedFriendUsernamesOnly(user.getId());
     }
 
 }

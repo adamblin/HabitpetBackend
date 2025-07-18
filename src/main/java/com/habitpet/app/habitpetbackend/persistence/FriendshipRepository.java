@@ -28,15 +28,17 @@ public interface FriendshipRepository extends JpaRepository<Friendship, String> 
     @Query("""
     SELECT new com.habitpet.app.habitpetbackend.application.dto.FriendshipDTO(
         CASE 
-            WHEN f.user.id = :userId THEN f.friend.username 
-            ELSE f.user.username 
-        END, 
-        com.habitpet.app.habitpetbackend.domain.enums.FriendshipStatus.ACCEPTED) 
-    FROM Friendship f 
-    WHERE (f.user.id = :userId OR f.friend.id = :userId) 
+            WHEN f.user.id = :userId THEN f.friend.username
+            ELSE f.user.username
+        END,
+        com.habitpet.app.habitpetbackend.domain.enums.FriendshipStatus.ACCEPTED)
+    FROM Friendship f
+    WHERE (f.user.id = :userId OR f.friend.id = :userId)
     AND f.status = 'ACCEPTED'
 """)
-    List<FriendshipDTO> findAcceptedFriendshipsWithUsernames(@Param("userId") String userId);
+    List<FriendshipDTO> findAcceptedFriendUsernamesOnly(@Param("userId") String userId);
+
+
 
 
 

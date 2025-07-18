@@ -40,3 +40,12 @@ Content-Type: application/json
   "password": "hola123"
 }
 
+### Registro de un nuevo usuario
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "palomino",
+  "email": "p@gmail.com",
+  "password": "hola123"
+}
