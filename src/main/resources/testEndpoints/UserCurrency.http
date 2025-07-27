@@ -1,0 +1,14 @@
+### Get Currencies
+GET http://localhost:8080/users/test/currency
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzYwOTY5MCwiZXhwIjoxNzUzNjEzMjkwfQ.1QUZkiGlBgqhoRleHBmMiN2gi39vKf3LhmJGacSwpH8
+
+### EarnCurrency
+POST http://localhost:8080//users/test/earn
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzYwOTY5MCwiZXhwIjoxNzUzNjEzMjkwfQ.1QUZkiGlBgqhoRleHBmMiN2gi39vKf3LhmJGacSwpH8
+
+
+{
+  "currency": "HABIT_GEMS",
+  "amount": 50
+}

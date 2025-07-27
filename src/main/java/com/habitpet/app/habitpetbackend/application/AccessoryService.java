@@ -29,12 +29,12 @@ public class AccessoryService {
 
     public Accessory updateAccessory(String id, AccessoryDTO accessoryDTO) {
         return accessoryRepository.findById(id).map(accessory -> {
-            accessory.setName(accessoryDTO.getName());
-            accessory.setCoins(accessoryDTO.getCoins());
+            accessory.setName(accessoryDTO.name());
+            accessory.setHabitCoinsCost(accessoryDTO.habitCoins());
+            accessory.setHabitGemsCost(accessoryDTO.habitGems());
             return accessoryRepository.save(accessory);
         }).orElseThrow(() -> new RuntimeException("Accessory not found with ID: " + id));
     }
-
     public void deleteAccessory(String id) {
         if (!accessoryRepository.existsById(id)) {
             throw new RuntimeException("Accessory not found with ID: " + id);
@@ -45,7 +45,7 @@ public class AccessoryService {
     public List<AccessoryDTO> getAllAccessories() {
         List<Accessory> accessories = accessoryRepository.findAll();
         return accessories.stream()
-                .map(AccessoryDTO::new)
+                .map(AccessoryDTO::fromEntity)
                 .collect(Collectors.toList());
     }
 }

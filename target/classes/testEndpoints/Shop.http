@@ -1,0 +1,9 @@
+### Get Shop Accessories
+GET http://localhost:8080/shop/accessories
+Content-Type: application/json
+
+### Buy Shop Accessories
+POST http://localhost:8080/shop/buy-accessory
+Authorization: Bearer
+Content-Type: application/json
+

@@ -1,7 +1,7 @@
 package com.habitpet.app.habitpetbackend.api;
 
 import com.habitpet.app.habitpetbackend.application.UserService;
-import com.habitpet.app.habitpetbackend.application.dto.UserDTO;
+import com.habitpet.app.habitpetbackend.application.dto.UserRegisterDTO;
 import com.habitpet.app.habitpetbackend.application.dto.UserLoginDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -19,23 +19,21 @@ public class AuthRestController {
         this.userService = userService;
     }
 
-    // **Registro**
     @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> register(@Valid @RequestBody UserRegisterDTO userRegisterDTO) {
         try {
-            String token = userService.register(userDTO);
-            return ResponseEntity.ok(Map.of("token", token));
+            Map<String, Object> response = userService.register(userRegisterDTO);
+            return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }
 
-    // **Login**
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO) {
         try {
-            String token = userService.login(userLoginDTO);
-            return ResponseEntity.ok(Map.of("token", token));
+            Map<String, Object> response = userService.login(userLoginDTO);
+            return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }

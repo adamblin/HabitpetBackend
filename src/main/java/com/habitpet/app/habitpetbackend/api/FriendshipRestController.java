@@ -43,4 +43,12 @@ public class FriendshipRestController {
     public ResponseEntity<List<FriendshipDTO>> getAllFriends(@AuthenticationPrincipal User user) {
         return ResponseEntity.ok(friendshipService.getAllFriends(user));
     }
+
+    @PatchMapping("/decline/{senderId}")
+    public ResponseEntity<Void> declineFriendRequest(@AuthenticationPrincipal User user, @PathVariable String senderId) {
+        friendshipService.declineFriendRequest(user, senderId);
+        return ResponseEntity.ok().build();
+    }
+
+
 }

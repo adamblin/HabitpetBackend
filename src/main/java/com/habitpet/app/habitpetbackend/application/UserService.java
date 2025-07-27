@@ -1,8 +1,9 @@
 package com.habitpet.app.habitpetbackend.application;
 
 import com.habitpet.app.habitpetbackend.application.dto.PetDTO;
-import com.habitpet.app.habitpetbackend.application.dto.UserDTO;
+import com.habitpet.app.habitpetbackend.application.dto.UserRegisterDTO;
 import com.habitpet.app.habitpetbackend.application.dto.UserLoginDTO;
+import com.habitpet.app.habitpetbackend.application.dto.UserResponseDTO;
 import com.habitpet.app.habitpetbackend.domain.Pet;
 import com.habitpet.app.habitpetbackend.domain.User;
 import com.habitpet.app.habitpetbackend.persistence.UserRepository;
@@ -11,6 +12,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -25,24 +28,26 @@ public class UserService {
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
-    public String register(UserDTO userDTO) {
-        if (userRepository.existsByEmail(userDTO.getEmail())) {
+    public Map<String, Object> register(UserRegisterDTO userRegisterDTO) {
+        if (userRepository.existsByEmail(userRegisterDTO.getEmail())) {
             throw new IllegalArgumentException("User with this email already exists.");
         }
-        if(userRepository.existsByUsername(userDTO.getUsername())){
+        if (userRepository.existsByUsername(userRegisterDTO.getUsername())) {
             throw new IllegalArgumentException("User with this username already exists.");
         }
-        User user = new User();
-        user.setUsername(userDTO.getUsername());
-        user.setEmail(userDTO.getEmail());
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+
+        User user = new User(userRegisterDTO);
+        user.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
         userRepository.save(user);
 
-        // Generar y devolver el token
-        return jwtTokenProvider.generateToken(user.getEmail());
+        String token = jwtTokenProvider.generateToken(user.getEmail());
+        return Map.of(
+                "token", token,
+                "user", new UserResponseDTO(user)
+        );
     }
 
-    public String login(UserLoginDTO userLoginDTO) {
+    public Map<String, Object> login(UserLoginDTO userLoginDTO) {
         User user = userRepository.findByUsername(userLoginDTO.getUsername())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid username or password."));
 
@@ -50,7 +55,11 @@ public class UserService {
             throw new IllegalArgumentException("Invalid username or password.");
         }
 
-        return jwtTokenProvider.generateToken(user.getEmail());
+        String token = jwtTokenProvider.generateToken(user.getEmail());
+        return Map.of(
+                "token", token,
+                "user", new UserResponseDTO(user)
+        );
     }
 
     @Transactional

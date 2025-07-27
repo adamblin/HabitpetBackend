@@ -62,4 +62,20 @@ public class FriendshipService {
         return friendshipRepository.findAcceptedFriendUsernamesOnly(user.getId());
     }
 
+    public void declineFriendRequest(User recipient, String senderUsername) {
+        User sender = userRepository.findByUsername(senderUsername)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        Friendship friendship = friendshipRepository.findFriendshipBetween(sender, recipient)
+                .orElseThrow(() -> new RuntimeException("Solicitud de amistad no encontrada"));
+
+        if (friendship.getStatus() != FriendshipStatus.PENDING) {
+            throw new IllegalStateException("No se puede rechazar una solicitud que no está pendiente.");
+        }
+
+        friendship.setStatus(FriendshipStatus.REJECTED);
+        friendshipRepository.save(friendship);
+    }
+
+
 }

@@ -38,6 +38,11 @@ public interface FriendshipRepository extends JpaRepository<Friendship, String> 
 """)
     List<FriendshipDTO> findAcceptedFriendUsernamesOnly(@Param("userId") String userId);
 
+    @Query("""
+    SELECT f FROM Friendship f 
+    WHERE ((f.user = :user1 AND f.friend = :user2) OR (f.user = :user2 AND f.friend = :user1))
+""")
+    Optional<Friendship> findFriendshipBetween(@Param("user1") User user1, @Param("user2") User user2);
 
 
 

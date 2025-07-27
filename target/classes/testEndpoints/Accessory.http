@@ -5,7 +5,8 @@ Content-Type: application/json
 
 {
   "name": "Lazito",
-  "coins": 1000
+  "habitCoinsCost": 1000,
+  "habitGemsCost": 0
 }
 
 ### Get Accessory
@@ -19,8 +20,10 @@ Content-Type: application/json
 
 {
   "name": "Golden Crown",
-  "coins": 800
+  "habitCoinsCost": 800,
+  "habitGemsCost": 5
 }
+
 
 ### Delete Accessory
 DELETE http://localhost:8080/accessories/b1dbc58c-4760-4261-a6f1-e82557c07655

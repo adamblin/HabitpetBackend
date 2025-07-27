@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public class UserLoginDTO {
     @Size(min = 3, max = 20, message = "El usuario debe tener entre 3 y 20 caracteres")
-    @NotBlank(message = "El email no puede estar vacío")
+    @NotBlank(message = "El usuario no puede estar vacío")
     private String username;
 
     @NotBlank(message = "Password cannot be blank")

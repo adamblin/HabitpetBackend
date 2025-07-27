@@ -19,22 +19,24 @@ public class AccessoryRestController {
         this.accessoryService = accessoryService;
     }
 
-    @PostMapping()
-    public ResponseEntity<Accessory> createAccessory(@RequestBody AccessoryDTO accesoryDTO){
-        Accessory accessory = accessoryService.createAccessory(accesoryDTO);
-        return ResponseEntity.ok(accessory);
+    @PostMapping
+    public ResponseEntity<AccessoryDTO> createAccessory(@RequestBody AccessoryDTO dto) {
+        Accessory accessory = accessoryService.createAccessory(dto);
+        return ResponseEntity.ok(AccessoryDTO.fromEntity(accessory));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Accessory> getAccessoryById(@PathVariable String id) {
-        return accessoryService.getAccessoryById(id)
-                .map(ResponseEntity::ok)
+    public ResponseEntity<AccessoryDTO> getAccessoryById(@PathVariable String id) {
+        Optional<Accessory> accessoryOpt = accessoryService.getAccessoryById(id);
+        return accessoryOpt
+                .map(accessory -> ResponseEntity.ok(AccessoryDTO.fromEntity(accessory)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Accessory> updateAccessory(@PathVariable String id, @RequestBody AccessoryDTO accessoryDTO) {
-        return ResponseEntity.ok(accessoryService.updateAccessory(id, accessoryDTO));
+    public ResponseEntity<AccessoryDTO> updateAccessory(@PathVariable String id, @RequestBody AccessoryDTO dto) {
+        Accessory updated = accessoryService.updateAccessory(id, dto);
+        return ResponseEntity.ok(AccessoryDTO.fromEntity(updated));
     }
 
     @DeleteMapping("/{id}")
@@ -45,8 +47,6 @@ public class AccessoryRestController {
 
     @GetMapping
     public ResponseEntity<List<AccessoryDTO>> getAllAccessories() {
-        List<AccessoryDTO> accessories = accessoryService.getAllAccessories();
-        return ResponseEntity.ok(accessories);
+        return ResponseEntity.ok(accessoryService.getAllAccessories());
     }
-
 }

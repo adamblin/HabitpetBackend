@@ -1,0 +1,13 @@
+### Get Currencies
+GET /users/john_doe/currency
+Authorization: Bearer <token>
+
+### EarnCurrency
+POST /users/john_doe/earn
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "currency": "HABIT_GEMS",
+  "amount": 15
+}
