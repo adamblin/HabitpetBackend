@@ -1,9 +1,15 @@
 ### Get Shop Accessories
 GET http://localhost:8080/shop/accessories
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzYwOTY5MCwiZXhwIjoxNzUzNjEzMjkwfQ.1QUZkiGlBgqhoRleHBmMiN2gi39vKf3LhmJGacSwpH8
 Content-Type: application/json
 
 ### Buy Shop Accessories
 POST http://localhost:8080/shop/buy-accessory
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzYwOTY5MCwiZXhwIjoxNzUzNjEzMjkwfQ.1QUZkiGlBgqhoRleHBmMiN2gi39vKf3LhmJGacSwpH8
 Content-Type: application/json
+
+{
+  "username": "test",
+  "accessoryId": "7ca3714a-39a4-4a00-9059-3fa595207eb9"
+}
 

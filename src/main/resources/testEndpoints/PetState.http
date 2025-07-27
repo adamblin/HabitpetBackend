@@ -1,0 +1,20 @@
+### Get My Pet State
+GET http://localhost:8080/pets/me/state
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY0NDAyOCwiZXhwIjoxNzUzNjQ3NjI4fQ.kADezyF0l7_dRbbealbZ-8Rad0N6-Wj1PswsA6znb0s
+Content-Type: application/json
+
+### Update My Pet State
+PUT http://localhost:8080/pets/me/state
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY0NDAyOCwiZXhwIjoxNzUzNjQ3NjI4fQ.kADezyF0l7_dRbbealbZ-8Rad0N6-Wj1PswsA6znb0s
+Content-Type: application/json
+
+{
+  "satiated": 85,
+  "cleanliness": 70,
+  "hapyness": 95
+}
+
+### Reset My Pet State
+DELETE http://localhost:8080/pets/me/state
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY0NDAyOCwiZXhwIjoxNzUzNjQ3NjI4fQ.kADezyF0l7_dRbbealbZ-8Rad0N6-Wj1PswsA6znb0s
+Content-Type: application/json

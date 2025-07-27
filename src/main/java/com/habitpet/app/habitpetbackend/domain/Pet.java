@@ -18,8 +18,9 @@ public class Pet {
     private String id = UUID.randomUUID().toString();
 
     private String name;
-    private int hungryness; // De 0 (no té gana) a 100 (molt famolenca)
+    private int satiated; // De 0 (no té gana) a 100 (molt famolenca)
     private int cleanliness; // De 0 (bruta) a 100 (molt neta)
+    private int hapyness; // De 0 (infleiç) a 100 (molt feliç)
     private LocalDateTime lastUpdated;
 
     @ManyToMany
@@ -39,8 +40,9 @@ public class Pet {
 
     public Pet(PetDTO dto) {
         this.name = dto.getName();
-        this.hungryness = 50;
+        this.satiated = 50;
         this.cleanliness = 50;
+        this.hapyness = 50;
         this.lastUpdated = LocalDateTime.now();
     }
 
@@ -49,13 +51,19 @@ public class Pet {
     public void setId(String id) { this.id = id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-    public int getHungryness() { return hungryness; }
-    public void setHungryness(int hungryness) { this.hungryness = hungryness; }
+    public int getSatiated() { return satiated; }
+    public void setSatiated(int hungryness) { this.satiated = hungryness; }
     public int getCleanliness() { return cleanliness; }
     public void setCleanliness(int cleanliness) { this.cleanliness = cleanliness; }
     public List<Accessory> getAccessories() { return accessories; }
     public void setAccessories(List<Accessory> accessories) { this.accessories = accessories; }
+    public int getHapyness() {
+        return hapyness;
+    }
 
+    public void setHapyness(int hapyness) {
+        this.hapyness = hapyness;
+    }
     public User getUser() {
         return user;
     }

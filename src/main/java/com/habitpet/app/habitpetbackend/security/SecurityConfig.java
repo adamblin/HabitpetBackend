@@ -36,7 +36,7 @@ public class SecurityConfig {
                                         "/webjars/**"
                                 ).permitAll()
                         .requestMatchers("/auth/register", "/auth/login","/accessories").permitAll()
-                        .requestMatchers("/users/pet", "/accessories/**").authenticated()
+                        .requestMatchers("/users/pet/**", "/accessories/**", "/pets/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -8,8 +8,6 @@ Content-Type: application/json
   "password": "hola123"
 }
 
-###
-
 ### Login del usuario
 POST http://localhost:8080/auth/login
 Content-Type: application/json
@@ -28,8 +26,6 @@ Content-Type: application/json
   "email": "m@gmail.com",
   "password": "hola123"
 }
-
-###
 
 ### Login del usuario
 POST http://localhost:8080/auth/login

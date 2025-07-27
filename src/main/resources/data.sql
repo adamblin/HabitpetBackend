@@ -1,18 +1,19 @@
--- Crear tabla pets (sin la columna user_id)
+-- Crear tabla pets (con satiated, cleanliness y hapyness)
 CREATE TABLE pets (
                       id UUID PRIMARY KEY,
                       name VARCHAR(255) NOT NULL,
-                      hungryness INT NOT NULL,
-                      cleanliness INT NOT NULL
+                      satiated INT NOT NULL,
+                      cleanliness INT NOT NULL,
+                      hapyness INT NOT NULL
 );
 
 -- Insertar mascotas
-INSERT INTO pets (id, name, hungryness, cleanliness) VALUES
-                                                         (UUID(), 'Buddy', 50, 80),
-                                                         (UUID(), 'Bella', 30, 70),
-                                                         (UUID(), 'Charlie', 60, 90);
+INSERT INTO pets (id, name, satiated, cleanliness, hapyness) VALUES
+                                                                 (UUID(), 'Buddy', 50, 80, 60),
+                                                                 (UUID(), 'Bella', 30, 70, 85),
+                                                                 (UUID(), 'Charlie', 60, 90, 70);
 
--- Crear tabla users (con la columna pet_id añadida)
+-- Crear tabla users (con relación a pet_id)
 CREATE TABLE users (
                        id UUID PRIMARY KEY,
                        username VARCHAR(255) NOT NULL,
@@ -24,8 +25,7 @@ CREATE TABLE users (
                        FOREIGN KEY (pet_id) REFERENCES pets (id) ON DELETE CASCADE
 );
 
-
--- Insertar usuarios con sus mascotas asignadas
+-- Insertar usuarios con mascotas
 INSERT INTO users (id, username, password, email, habit_coins, habit_gems, pet_id) VALUES
                                                                                        (UUID(), 'john_doe', 'password123', 'john.doe@example.com', 100, 5, (SELECT id FROM pets WHERE name = 'Buddy')),
                                                                                        (UUID(), 'jane_smith', 'password456', 'jane.smith@example.com', 50, 2, (SELECT id FROM pets WHERE name = 'Bella')),
@@ -39,14 +39,13 @@ CREATE TABLE accessories (
                              habit_gems_cost INT NOT NULL DEFAULT 0
 );
 
--- Insertar accesorios con distintos costes
+-- Insertar accesorios
 INSERT INTO accessories (id, name, habit_coins_cost, habit_gems_cost) VALUES
                                                                           (UUID(), 'Gafas de Sol', 100, 0),
                                                                           (UUID(), 'Sombrero de Vaquero', 150, 2),
                                                                           (UUID(), 'Bufanda Roja', 80, 1),
                                                                           (UUID(), 'Orejas de Conejo', 0, 5),
                                                                           (UUID(), 'Pañuelo Pirata', 110, 0);
-
 
 -- Crear tabla pet_accessories
 CREATE TABLE pet_accessories (
@@ -81,7 +80,7 @@ INSERT INTO tasks (id, name, estimated_time, type, status, points, user_id) VALU
                                                                                 (UUID(), 'Work Out', 60, 'exercise', 'completed', 20, (SELECT id FROM users WHERE username = 'jane_smith')),
                                                                                 (UUID(), 'Grocery Shopping', 30, 'errand', 'to_do', 5, (SELECT id FROM users WHERE username = 'alice_wonder'));
 
--- Crear tabla friendships con columna status en vez de accepted
+-- Crear tabla friendships
 CREATE TABLE friendships (
                              id UUID PRIMARY KEY,
                              user_id UUID NOT NULL,
@@ -91,7 +90,7 @@ CREATE TABLE friendships (
                              FOREIGN KEY (friend_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
--- Insertar amistades con estado inicial PENDING
+-- Insertar amistades
 INSERT INTO friendships (id, user_id, friend_id, status) VALUES
                                                              (UUID(), (SELECT id FROM users WHERE username = 'john_doe'),     (SELECT id FROM users WHERE username = 'jane_smith'),  'PENDING'),
                                                              (UUID(), (SELECT id FROM users WHERE username = 'jane_smith'),   (SELECT id FROM users WHERE username = 'alice_wonder'), 'PENDING'),
