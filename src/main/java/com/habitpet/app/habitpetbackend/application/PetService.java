@@ -6,6 +6,9 @@ import com.habitpet.app.habitpetbackend.persistence.PetRepository;
 import com.habitpet.app.habitpetbackend.persistence.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 @Service
 public class PetService {
 
@@ -21,10 +24,10 @@ public class PetService {
         Pet pet = userRepository.findByUsername(username)
                 .orElseThrow()
                 .getPet();
-
+        degradePetStats(pet);
+        petRepository.save(pet);
         return new PetStateDTO(pet.getSatiated(), pet.getCleanliness(), pet.getHapyness());
     }
-
     public void updatePetStateByUsername(String username, PetStateDTO dto) {
         Pet pet = userRepository.findByUsername(username)
                 .orElseThrow()
@@ -46,6 +49,26 @@ public class PetService {
         pet.setHapyness(0);
         petRepository.save(pet);
     }
+
+    private void degradePetStats(Pet pet) {
+        LocalDateTime now = LocalDateTime.now();
+        Duration elapsed = Duration.between(pet.getLastUpdated(), now);
+        long hoursPassed = elapsed.toHours();
+
+        if (hoursPassed <= 0) return;
+
+        int degradePerHour = 5;
+
+        int newSatiated = Math.max(0, pet.getSatiated() - (int)(hoursPassed * degradePerHour));
+        int newCleanliness = Math.max(0, pet.getCleanliness() - (int)(hoursPassed * degradePerHour));
+        int newHapyness = Math.max(0, pet.getHapyness() - (int)(hoursPassed * degradePerHour));
+
+        pet.setSatiated(newSatiated);
+        pet.setCleanliness(newCleanliness);
+        pet.setHapyness(newHapyness);
+        pet.setLastUpdated(now);
+    }
+
 }
 
 

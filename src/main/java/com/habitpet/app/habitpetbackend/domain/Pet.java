@@ -71,4 +71,12 @@ public class Pet {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public LocalDateTime getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(LocalDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 }
