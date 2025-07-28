@@ -95,3 +95,22 @@ INSERT INTO friendships (id, user_id, friend_id, status) VALUES
                                                              (UUID(), (SELECT id FROM users WHERE username = 'john_doe'),     (SELECT id FROM users WHERE username = 'jane_smith'),  'PENDING'),
                                                              (UUID(), (SELECT id FROM users WHERE username = 'jane_smith'),   (SELECT id FROM users WHERE username = 'alice_wonder'), 'PENDING'),
                                                              (UUID(), (SELECT id FROM users WHERE username = 'alice_wonder'), (SELECT id FROM users WHERE username = 'john_doe'),     'PENDING');
+
+CREATE TABLE interaction_types (
+                                   id UUID PRIMARY KEY,
+                                   action VARCHAR(20) NOT NULL,          -- FEED, CLEAN, PET
+                                   type VARCHAR(50) NOT NULL,            -- manzana, ducha, juguete...
+                                   delta_satiated INT DEFAULT 0,
+                                   delta_cleanliness INT DEFAULT 0,
+                                   delta_hapyness INT DEFAULT 0
+);
+
+-- Datos de ejemplo
+INSERT INTO interaction_types (id, action, type, delta_satiated, delta_cleanliness, delta_hapyness) VALUES
+                                                                                                        (UUID(), 'FEED', 'manzana', 10, 0, 0),
+                                                                                                        (UUID(), 'FEED', 'hamburguesa', 30, -5, 0),
+                                                                                                        (UUID(), 'CLEAN', 'ducha', 0, 40, 0),
+                                                                                                        (UUID(), 'CLEAN', 'toallita', 0, 10, 0),
+                                                                                                        (UUID(), 'PET', 'caricia', 0, 0, 10),
+                                                                                                        (UUID(), 'PET', 'juguete', -10, 0, 20);
+

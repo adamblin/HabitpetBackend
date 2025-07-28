@@ -18,3 +18,14 @@ Content-Type: application/json
 DELETE http://localhost:8080/pets/me/state
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY0NDAyOCwiZXhwIjoxNzUzNjQ3NjI4fQ.kADezyF0l7_dRbbealbZ-8Rad0N6-Wj1PswsA6znb0s
 Content-Type: application/json
+
+### Acariciar con juguete
+POST http://localhost:8080/pets/me/interact
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY5NTAwNywiZXhwIjoxNzUzNjk4NjA3fQ.ZxeU-XwJ5qMUW1603iY6mn88Ev7Gb79CK1BB_xUp93U
+Content-Type: application/json
+
+{
+  "action": "CLEAN",
+  "type": "ducha"
+}
+

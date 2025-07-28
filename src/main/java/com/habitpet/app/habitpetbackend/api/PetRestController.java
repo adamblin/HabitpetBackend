@@ -1,7 +1,9 @@
 package com.habitpet.app.habitpetbackend.api;
 
 import com.habitpet.app.habitpetbackend.application.PetService;
+import com.habitpet.app.habitpetbackend.application.dto.InteractionTypeDTO;
 import com.habitpet.app.habitpetbackend.application.dto.PetStateDTO;
+import com.habitpet.app.habitpetbackend.domain.InteractionType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
@@ -34,6 +36,13 @@ public class PetRestController {
         petService.resetPetStateByUsername(auth.getName());
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/me/interact")
+    public ResponseEntity<Void> interactWithPet(@RequestBody InteractionTypeDTO dto, Authentication auth) {
+        petService.interactWithPet(auth.getName(), dto.getAction(), dto.getType());
+        return ResponseEntity.ok().build();
+    }
+
 
 
 }
