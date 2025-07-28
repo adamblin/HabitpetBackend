@@ -1,6 +1,6 @@
 ### Get My Pet State
 GET http://localhost:8080/pets/me/state
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY4ODExMiwiZXhwIjoxNzUzNjkxNzEyfQ.OieEr1KyKlyryK4frOuIGl3-AJktBaoZFdyTW_DShHg
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0QGdtYWlsLmNvbSIsImlhdCI6MTc1MzY5MjMwNSwiZXhwIjoxNzUzNjk1OTA1fQ.vO2h_AxefGU0Kv_8FDui2UKGSH0QCcgOiqWJWRuoIpU
 Content-Type: application/json
 
 ### Update My Pet State
